@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./rock-paper-scissors-master/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="css/main.css">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+
+    <!--SOUNDS GAMES-->
+    <audio id="sound_wins" src="./sounds/sound_wins.wav"></audio>
+    <audio id="sound_lose" src="./sounds/sound_lose.flac"></audio>
+    <audio id="sound_draw" src="./sounds/sound_draw.wav"></audio>
+    
+    <!--CONTAINER-LOGO AND SCORE-->
+    <section class="container-logo-and-score">
+        <div class="logo-and-score">
+            <div class="logo">
+                <img src="./rock-paper-scissors-master/images/logo.svg" alt="logo-game">
+            </div>
+            <div class="score">
+                <p>SCORE</p>
+                <h1 id="score">0</h1>
+            </div>
+        </div>
+    </section>
+
+    <!--CONTAINER-GAME-->
+    <section id="container-game" class="container-game">
+        <div class="game">
+            <div class="paper-and-rock">
+                <div id="papel" class="paper" onclick="playGame(1)">
+                    <img src="./rock-paper-scissors-master/images/icon-paper.svg" alt="img-paper">
+                </div>
+                
+                <div class="scissors" onclick="playGame(2)">
+                    <img src="./rock-paper-scissors-master/images/icon-scissors.svg" alt="img-scissors">
+                </div>
+            </div>
+
+            <div class="rock" onclick="playGame(3)">
+                <img src="./rock-paper-scissors-master/images/icon-rock.svg" alt="img-rock">
+            </div>
+        </div>
+    </section>
+    
+    <!--CONTAINER-ROUND-->
+    <section id="container-round" class="container-round-game">
+        <div class="round-game">
+            <div class="img-player">
+                <h1>YOU PICKED</h1>
+                
+                <img id="option-selected" src="./rock-paper-scissors-master/images/icon-paper.svg" alt="">
+                
+            </div>
+            <div class="results-game-and-button">
+                <h1 id="results-game"></h1>
+                <button id="btn-playAgain">PLAY AGAIN</button>
+            </div>
+            <div class="img-computer">
+                <h1>THE HOUSE PICKED</h1>
+                <h1 id="timer-computer" class="timer-computer">0</h1>
+                
+                <img id="random-selected" src="./rock-paper-scissors-master/images/icon-rock.svg" alt=""> 
+                
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container-rules">
+        <div class="button-rules">
+            <button id="btn-rules">RULES</button>
+        </div>
+    </section>
+
+    <!--MODAL-->
+    <div id="container-modal" class="container-modal">
+        <div class="modal-content">
+            <div class="modal">
+                <div class="title-and-button">
+                    <h1>RULES</h1>
+                    <button id="btn-close-modal">&times;</button>
+                </div>
+                <div class="img-rules">
+                    <img src="./rock-paper-scissors-master/images/image-rules.svg" alt="img-rules-game">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

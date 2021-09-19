@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    background: radial-gradient( hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+}
+
+/* SCORE AND LOGO FROM GAME */
+.container-logo-and-score{
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container-logo-and-score .logo-and-score{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border: 2px solid rgba(255, 255, 255, 0.39);
+    border-radius: 0.7rem;
+    padding: 1.3rem;
+    gap: 20rem;
+}
+
+.container-logo-and-score .logo-and-score .score{
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2.5rem;
+}
+
+.container-logo-and-score .logo-and-score .score p{
+    font-size: 0.8rem;
+    color: hsl(229, 64%, 46%);
+}
+
+.container-logo-and-score .logo-and-score .score h1{
+    font-size: 2.5rem;
+    color: hsl(229, 25%, 31%);
+}
+
+/* GAME-CONTENT */
+.container-game{
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.container-game .game{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    background-image: url('/rock-paper-scissors-master/images/bg-triangle.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container-game .paper-and-rock{
+    display: flex;
+    margin-bottom: 2.5rem;
+    gap: 5rem;
+}
+
+.container-game .game .rock img{
+    background-color: white;
+    padding: 1.8rem;
+    border: 1rem solid #E13557;
+    border-radius: 360px;
+    cursor: pointer;
+}
+
+.container-game .game .paper img{
+    background-color: white;
+    padding: 1.8rem;
+    border: 1rem solid #4E6BF6;
+    border-radius: 360px;
+    cursor: pointer;
+}
+
+.container-game .game .scissors img{
+    background-color: white;
+    padding: 1.8rem;
+    border: 1rem solid #EBA41F;
+    border-radius: 360px;
+    cursor: pointer;
+}
+
+/* GAME ROUND */
+.container-round-game{
+    width: 100%;
+    display: none;
+}
+
+.container-round-game .round-game{
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.container-round-game .results-game-and-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-round-game .results-game-and-button h1{
+    display: none;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.container-round-game .results-game-and-button button{
+    display: none;
+    margin: 0.8rem 0;
+    padding: 0.8rem 2.5rem;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    border: none;
+    background-color: white;
+    color: hsl(229, 25%, 31%);
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+.container-round-game .results-game-and-button button:hover{
+    color: rgb(236, 56, 56);
+}
+
+.container-round-game .round-game .img-player{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+
+.container-round-game .round-game .img-computer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+
+.container-round-game .round-game .img-player img{
+    width: 12rem;
+    margin: 1.2rem 0;
+    background-color: white;
+    padding: 1.8rem;
+    border: 1rem solid rgb(235, 159, 18);
+    border-radius: 360px;
+    cursor: pointer;
+}
+
+.container-round-game .round-game .img-computer img{
+    display: none;
+    width: 12rem;
+    margin: 1rem 0;
+    background-color: white;
+    padding: 1.8rem;
+    border: 1.2rem solid rgb(231, 69, 69);
+    border-radius: 360px;
+    cursor: pointer;
+}
+
+.container-round-game .round-game .img-computer .timer-computer{
+    font-size: 4rem;
+}
+
+/* BUTTON RULES */
+.container-rules{
+    display: flex;
+    justify-content: end;
+}
+
+.container-rules .button-rules{
+    margin: 1rem 1.5rem;
+}
+
+.container-rules .button-rules button{
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+    background: none;
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/*MODAL*/
+.container-modal{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    padding-top: 5.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.425);
+}
+
+.modal-content{
+    display: block;
+    margin: auto;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 1rem;
+    width: 35%;
+    padding: 1.5rem;
+}
+
+.title-and-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+
+.title-and-button h1{
+    font-size: 2rem;
+    color: hsl(229, 25%, 31%);
+}
+
+.title-and-button button{
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: gray;
+    transition: all ease 0.3s;
+}
+
+.title-and-button button:hover{
+    color: rgb(24, 24, 24);
+}
+
+.img-rules{
+    display: flex;
+    justify-content: center;
+}
+
+.img-rules img{
+    min-width: 250px;
+}
+
+
+/*RESPONSIVIDADE*/
+@media (max-width: 1024px){
+    /*MODAL*/
+    .modal-content{
+        width: 50%;
+    }
+
+    .img-rules img{
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 675px){
+    /* LOGO AND SCORE*/
+    .container-logo-and-score .logo-and-score{
+        padding: 1rem;
+        gap: 15rem;
+    }
+
+    .container-logo-and-score .logo-and-score .score p{
+        font-size: 0.6rem;
+    }
+
+    .container-logo-and-score .logo-and-score .score{
+        padding: 0.5rem 2rem;
+    }
+
+    .container-logo-and-score .logo-and-score .score h1{
+        font-size: 2rem;
+    }
+
+    .container-logo-and-score .logo-and-score .logo img{
+        width: 5rem;
+    }
+
+    /*GAME CONTENT*/
+    .container-game{
+        margin: 2.5rem 0;
+    }
+
+    .container-game .paper-and-rock{
+        display: flex;
+        margin-bottom: 2.5rem;
+        gap: 5rem;
+    }
+
+    .container-game .game .rock img{
+        width: 8rem;
+    }
+
+    .container-game .game .paper img{
+        width: 8rem;
+    }
+
+    .container-game .game .scissors img{
+        width: 8rem;
+    }
+
+    /*GAME ROUND*/
+    .container-round-game .round-game{
+        gap: 2.5rem;
+    }
+    
+    .container-round-game .results-game-and-button h1{
+        position: absolute;
+        bottom: 7rem;
+        display: none;
+        font-size: 2rem;
+    }
+    
+    .container-round-game .results-game-and-button button{
+        position: absolute;
+        bottom: 3.5rem;
+        display: none;
+        padding: 0.5rem 1.3rem;
+    }
+
+    .container-round-game .round-game .img-player{
+        flex-direction: column-reverse;
+    }
+    
+    .container-round-game .round-game .img-computer{
+        flex-direction: column-reverse;
+    }
+    
+    .container-round-game .round-game .img-player img{
+        width: 10rem;
+    }
+    
+    .container-round-game .round-game .img-computer img{
+        width: 10rem;
+    }
+
+    /* BUTTON RULES */
+    .container-rules .button-rules button{
+        right: 40%;
+    }
+}
+
+@media(max-width: 440px){
+    /* LOGO AND SCORE*/
+    .container-logo-and-score .logo-and-score{
+        border-radius: 0.2rem;
+        padding: 0.8rem;
+        gap: 15rem;
+    }
+
+    .container-logo-and-score .logo-and-score .score{
+        padding: 0.3rem 0.6rem;
+        border-radius: 0.2rem;
+    }
+
+    .container-logo-and-score .logo-and-score .score p{
+        font-size: 0.5rem;
+    }
+
+    .container-logo-and-score .logo-and-score .score h1{
+        font-size: 1.7rem;
+    }
+
+    .container-logo-and-score .logo-and-score .logo img{
+        width: 3.5rem;
+    }
+
+    /*GAME CONTENT*/
+    .container-game{
+        margin: 1rem 0;
+    }
+
+    /*GAME ROUND*/
+    .container-round-game .round-game{
+        gap: 2.5rem;
+    }
+
+    .container-round-game .results-game-and-button h1{
+        bottom: 9rem;
+        
+    }
+    
+    .container-round-game .results-game-and-button button{
+        bottom: 5rem;
+        padding: 0.5rem 1.3rem;
+    }
+    
+    .container-round-game .round-game .img-player img{
+        width: 8rem;
+    }
+    
+    .container-round-game .round-game .img-computer img{
+        width: 8rem;
+    }
+    
+    /*MODAL*/
+     .modal-content{
+        width: 75%;
+    }
+
+    .title-and-button h1{
+        font-size: 1.7rem;
+    }
+
+    .img-rules img{
+        min-width: 175px;
+    }
+
+    /* BUTTON RULES */
+    .container-rules .button-rules button{
+        right: 37.5%;
+    }
+}
+
+@media (max-width:320px){
+    /* LOGO AND SCORE*/
+    .container-logo-and-score .logo-and-score{
+        border-radius: 0.2rem;
+        padding: 0.8rem;
+        gap: 10rem;
+    }
+
+    /*GAME CONTENT*/
+    .container-game{
+        margin: 2.5rem 0;
+    }
+    
+    .container-game .paper-and-rock{
+        margin-bottom: 5rem;
+        gap: 5.5rem;
+    }
+
+    .container-game .game .rock img{
+        width: 7rem;
+        padding: 1.8rem;
+        border: 0.9rem solid #E13557;
+    }
+    
+    .container-game .game .paper img{
+        width: 7rem;
+        padding: 1.8rem;
+        border: 0.9rem solid #4E6BF6;
+    }
+    
+    .container-game .game .scissors img{
+        width: 7rem;
+        padding: 1.8rem;
+        border: 0.9rem solid #EBA41F;
+
+
+    }
+
+    /*GAME ROUND*/
+    .container-round-game .round-game{
+        gap: 1.5rem;
+    }
+    
+    .container-round-game .round-game .img-player img{
+        width: 8rem;
+    }
+    
+    .container-round-game .round-game .img-computer img{
+        width: 8rem;
+    }
+    
+    /*MODAL*/
+     .modal-content{
+        width: 75%;
+    }
+
+    .title-and-button h1{
+        font-size: 1.7rem;
+    }
+
+    .img-rules img{
+        min-width: 175px;
+    }
+
+    /* BUTTON RULES */
+    .container-rules .button-rules button{
+        right: 37.5%;
+    }
+}
